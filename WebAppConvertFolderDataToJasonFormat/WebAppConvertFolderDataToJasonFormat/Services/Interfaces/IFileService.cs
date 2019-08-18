@@ -8,6 +8,6 @@ namespace WebAppConvertFolderDataToJasonFormat.Services.Interfaces
 {
    public interface IFileService
     {
-        Folder OutPuthInfo(string folder);
+        Folder OutPutInfo(string folder);
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using WebAppConvertFolderDataToJasonFormat.Models;
 using WebAppConvertFolderDataToJasonFormat.Services.Interfaces;
 
 namespace WebAppConvertFolderDataToJasonFormat.Controllers
@@ -23,9 +24,9 @@ namespace WebAppConvertFolderDataToJasonFormat.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Index(string folder)
+        public IActionResult Index( FolderNameModel folder)
         {
-            var res = _fileService.OutPutInfo(folder);
+            var res = _fileService.OutPutInfo(folder.FolderName);
             var serealizeResult = JsonConvert.SerializeObject(res, Formatting.Indented);
             return Content(serealizeResult);
         }
